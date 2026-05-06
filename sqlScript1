@@ -1,0 +1,5 @@
+SELECT user_id,max(post_date) over (partition by user_id ),post_date,
+ datediff (max(post_date) over (partition by user_id ),post_date)
+FROM posts
+where year(post_date) = 2021
+order by user_id;
